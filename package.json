@@ -35,20 +35,10 @@
     "release:patch": "standard-version --release-as patch && git push --follow-tags"
   },
   "keywords": [
-    "device",
-    "detection",
-    "user-agent",
-    "useragent",
-    "mobile",
-    "tablet",
-    "pc",
-    "browser",
-    "os",
-    "operating system",
-    "device-info",
+    "npm",
+    "boilerplate",
     "typescript",
     "javascript",
-    "npm",
     "montasim"
   ],
   "author": {
