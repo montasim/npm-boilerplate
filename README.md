@@ -1,14 +1,14 @@
-# npm-package-name
+# npm-boilerplate
 
 <!-- repository summary badges start -->
 <div>
-    <img alt="NPM Version" src="https://badgen.net/npm/v/npm-package-name?label=version&labelColor=EB008B&color=00B8B5">
-    <img alt="NPM Downloads" src="https://badgen.net/npm/dm/npm-package-name?label=downloads&labelColor=EB008B&color=00B8B5">
-    <img alt="NPM Package" src="https://badgen.net/npm/license/npm-package-name?label=license&labelColor=EB008B&color=00B8B5">
+    <img alt="NPM Version" src="https://badgen.net/npm/v/npm-boilerplate?label=version&labelColor=EB008B&color=00B8B5">
+    <img alt="NPM Downloads" src="https://badgen.net/npm/dm/npm-boilerplate?label=downloads&labelColor=EB008B&color=00B8B5">
+    <img alt="NPM License" src="https://badgen.net/npm/license/npm-boilerplate?label=license&labelColor=EB008B&color=00B8B5">
 </div>
 <!-- repository summary badges end -->
 
-The [npm-package-name](https://www.npmjs.com/package/npm-package-name) summary.
+A modern, production-ready npm package boilerplate following best practices for Clean Code, SOLID principles, and professional package development.
 
 ## Table of Contents
 
@@ -23,10 +23,14 @@ The [npm-package-name](https://www.npmjs.com/package/npm-package-name) summary.
 
 ## Key Features
 
-1. **Feature 1:** Details of feature 1
-2. **Feature 1:** Details of feature 2
-3. **Feature 1:** Details of feature 3
-4. **Feature 1:** Details of feature 4
+1. **Modern TypeScript Setup** - Strict TypeScript configuration with modern ES modules support
+2. **Dual Package Format** - Supports both ESM and CommonJS for maximum compatibility
+3. **SOLID Architecture** - Clean, modular code structure following SOLID principles
+4. **Comprehensive Testing** - Jest with 80% coverage threshold and CI/CD integration
+5. **Code Quality Tools** - ESLint, Prettier, and Husky pre-commit hooks
+6. **Semantic Versioning** - Automated version management with standard-version
+7. **CLI Support** - Built-in CLI with configurable ASCII art output
+8. **Complete Documentation** - CONTRIBUTING guide, Code of Conduct, and GitHub templates
 
 ---
 
@@ -35,25 +39,25 @@ The [npm-package-name](https://www.npmjs.com/package/npm-package-name) summary.
 To install the package, run the following command:
 
 ```bash
-npm install npm-package-name
+npm install npm-boilerplate
 ```
 
 or
 
 ```bash
-yarn add npm-package-name
+yarn add npm-boilerplate
 ```
 
 or
 
 ```bash
-pnpm add npm-package-name
+pnpm add npm-boilerplate
 ```
 
 or
 
 ```bash
-bun add npm-package-name
+bun add npm-boilerplate
 ```
 
 ---
@@ -63,20 +67,39 @@ bun add npm-package-name
 ### JavaScript CommonJS Example
 
 ```javascript
+const welcome = require('npm-boilerplate');
 
+welcome();
+// Output: Welcome to the npm boilerplate.
 ```
 
 ### JavaScript ESM Example
 
 ```javascript
+import welcome from 'npm-boilerplate';
 
+welcome();
+// Output: Welcome to the npm boilerplate.
 ```
 
 ### TypeScript ESM Example
 
 ```typescript
+import welcome from 'npm-boilerplate';
 
+welcome();
+// Output: Welcome to the npm boilerplate.
 ```
+
+### CLI Usage
+
+After installing, you can run the CLI command:
+
+```bash
+npx npm-boilerplate
+```
+
+This will display an ASCII art banner with package information.
 
 ---
 
@@ -104,46 +127,58 @@ For more details, please visit the [Creative Commons License Page](https://creat
 
 Special thanks to the following resources:
 
-1. **Acknowledgment 1** - Short details of acknowledgments 1.
-2. **Acknowledgment 1** - Short details of acknowledgments 2.
-3. **Acknowledgment 1** - Short details of acknowledgments 3.
+1. **TypeScript** - For bringing strong typing to JavaScript
+2. **Jest** - For the excellent testing framework
+3. **ESLint & Prettier** - For code quality and formatting
+4. **tsup** - For the fast TypeScript bundler
+5. **standard-version** - For automated version management
+6. **figlet** - For ASCII art generation
+7. **chalk** - For terminal styling
 
 ---
 
 ## FAQs
 
-### 1. **FAQ1?**
+### 1. **Why should I use this boilerplate?**
 
-Answer of FAQ1.
+This boilerplate follows npm best practices, Clean Code principles, and SOLID principles. It includes comprehensive tooling for testing, linting, formatting, and CI/CD automation.
 
-### 2. **FAQ2?**
+### 2. **What is the license?**
 
-Answer of FAQ2.
+This project is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0). See the [License](#license) section for details.
 
-### 3. **How do I uninstall the package?**
+### 3. **How do I contribute?**
+
+Please read our [Contributing Guidelines](CONTRIBUTING.md) for information on how to contribute to this project.
+
+### 4. **How do I report a bug or request a feature?**
+
+Please use the [GitHub Issues](https://github.com/montasim/npm-boilerplate/issues) page to report bugs or request new features.
+
+### 5. **How do I uninstall the package?**
 
 You can remove the package by running:
 
 ```bash
-npm uninstall npm-package-name
+npm uninstall npm-boilerplate
 ```
 
 or
 
 ```bash
-yarn remove npm-package-name
+yarn remove npm-boilerplate
 ```
 
 or
 
 ```bash
-pnpm remove npm-package-name
+pnpm remove npm-boilerplate
 ```
 
 or
 
 ```bash
-bun remove npm-package-name
+bun remove npm-boilerplate
 ```
 
 ---

@@ -1,48 +1,25 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk';
-import figlet from 'figlet';
-
 /**
- * Generates ASCII art for "client-parser" using the 'Big' font.
- * The output is configured for full horizontal and vertical layout.
- * @type {string}
+ * CLI Entry Point for npm-boilerplate
+ *
+ * This script demonstrates SOLID principles with a modular architecture:
+ * - Single Responsibility: Each module has one purpose
+ * - Open/Closed: Extensible through configuration
+ * - Dependency Inversion: Uses injected dependencies
  */
-const clientParserArt = figlet.textSync('client-parser', {
-    font: 'Big',
-    horizontalLayout: 'full',
-    verticalLayout: 'full',
-});
 
-/**
- * The URL for Montasim's GitHub profile.
- * @type {string}
- */
-const githubUrl = 'https://github.com/montasim';
+import { defaultConfig } from '../dist/config/cli.config.js';
+import { AsciiArtGenerator } from '../dist/modules/ascii-art.generator.js';
+import { LinkFactory } from '../dist/modules/link.factory.js';
+import { ConsoleRenderer } from '../dist/modules/console.renderer.js';
 
-/**
- * The display text for the hyperlink.
- * @type {string}
- */
-const linkText = 'Montasim';
+// Create dependencies following Dependency Injection pattern
+const artGenerator = new AsciiArtGenerator();
+const linkFactory = new LinkFactory();
 
-/**
- * Creates a clickable hyperlink string using ANSI escape codes.
- * This link will navigate to `githubUrl` and display `linkText`.
- * Note: Clickable links may not be supported by all terminal emulators.
- * @type {string}
- */
-const clickableLink = `\x1b]8;;${githubUrl}\x07${linkText}\x1b]8;;\x07`;
+// Create renderer with injected dependencies
+const renderer = new ConsoleRenderer(artGenerator, linkFactory);
 
-/**
- * Logs the generated ASCII art and a styled signature with a clickable link to the console.
- * The ASCII art is red, and the signature "by - Montasim" is yellow and bold,
- * with "Montasim" being a clickable link.
- */
-console.info(
-    chalk.red(
-        clientParserArt +
-            chalk.yellow.bold(' by - ') +
-            chalk.bold(clickableLink)
-    )
-);
+// Render the welcome message
+renderer.render(defaultConfig);

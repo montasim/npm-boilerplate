@@ -23,7 +23,7 @@ fi
 # meet the project's linting standards. ESLint helps catch syntax errors,
 # anti-patterns, and potential bugs, contributing to cleaner and more reliable code.
 
-#echo "Running ESLint checks..."
+echo "Running ESLint checks..."
 npm run eslint:check
 
 # Check the exit code of the ESLint command to determine if it succeeded.
