@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.5 (2026-02-27)
+
+
+### Code Refactoring
+
+* implement npm best practices and SOLID architecture ([08bf3ca](https://github.com/montasim/npm-boilerplate/commit/08bf3ca61445669a731d5b0778611575f56f7484))
+
 ### 0.0.4 (2025-07-25)
 
 ### 0.0.3 (2025-07-25)
