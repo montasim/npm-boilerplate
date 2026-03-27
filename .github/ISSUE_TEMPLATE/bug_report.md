@@ -6,7 +6,7 @@ labels: bug
 assignees: ''
 ---
 
-## Bug Description
+## Describe the bug
 
 A clear and concise description of what the bug is.
 
@@ -14,41 +14,31 @@ A clear and concise description of what the bug is.
 
 Steps to reproduce the behavior:
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+1. Install the package
+2. Use this code:
+    ```typescript
+    // Add code here
+    ```
+3. See error
 
-## Expected Behavior
+## Expected behavior
 
 A clear and concise description of what you expected to happen.
 
-## Screenshots
+## Actual behavior
 
-If applicable, add screenshots to help explain your problem.
+A clear and concise description of what actually happened.
 
 ## Environment
 
-- **OS**: [e.g. macOS, Windows, Linux]
-- **Node.js version**: [e.g. 20.x]
-- **Package version**: [e.g. 1.0.0]
+- Node.js version: [e.g., 18.0.0]
+- Package version: [e.g., 1.0.0]
+- OS: [e.g., macOS, Linux, Windows]
 
-## Additional Context
+## Additional context
 
 Add any other context about the problem here.
 
-## Code Sample
-
-If the bug is related to code execution, please provide a minimal reproduction:
-
-```javascript
-// Add code here
-```
-
-## Logs
-
-Please include relevant error logs or stack traces:
-
-```
-// Paste logs here
-```
+- Error messages or stack traces
+- Screenshots (if applicable)
+- Code examples
