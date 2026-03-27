@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 0.0.5 (2026-02-27)
 
-
 ### Code Refactoring
 
-* implement npm best practices and SOLID architecture ([08bf3ca](https://github.com/montasim/npm-boilerplate/commit/08bf3ca61445669a731d5b0778611575f56f7484))
+- implement npm best practices and SOLID architecture ([08bf3ca](https://github.com/montasim/npm-boilerplate/commit/08bf3ca61445669a731d5b0778611575f56f7484))
 
 ### 0.0.4 (2025-07-25)
 
@@ -17,10 +16,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 0.0.17 (2025-07-24)
 
-
 ### Features
 
-* initiate boilerplate ([fdc7c8f](https://github.com/montasim/client-parser/commit/fdc7c8feae49cbf3094ac1213b7c21b972a9ab4a))
+- initiate boilerplate ([fdc7c8f](https://github.com/montasim/client-parser/commit/fdc7c8feae49cbf3094ac1213b7c21b972a9ab4a))
 
 # Changelog
 

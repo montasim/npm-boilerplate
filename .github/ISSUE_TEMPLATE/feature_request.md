@@ -6,41 +6,34 @@ labels: enhancement
 assignees: ''
 ---
 
-## Feature Description
+## Feature description
 
-A clear and concise description of the feature you'd like to see added to this project.
+A clear and concise description of the feature you'd like to see added.
 
-## Problem Statement
+## Use case
 
-What problem does this feature solve? What is the use case?
+Describe the use case for this feature. Why would it be useful?
 
-## Proposed Solution
+**Example:**
+"As a developer, I want [feature] so that [benefit]."
 
-How would you like this feature to be implemented? Please provide details about:
+## Proposed API
 
-- **API changes** (if any)
-- **Configuration options** (if any)
-- **Breaking changes** (if any)
+If applicable, describe how you envision the API working.
 
-## Alternatives Considered
+**Example:**
+
+```typescript
+import { httpStatusLite } from 'http-status-lite';
+
+// Proposed API
+httpStatusLite.newFunction(statusCode);
+```
+
+## Alternatives
 
 Describe any alternative solutions or features you've considered.
 
-## Additional Context
+## Additional context
 
-Add any other context, mockups, or examples about the feature request here.
-
-## Implementation Ideas
-
-If you have ideas on how to implement this feature, please share:
-
-```typescript
-// Example code or pseudo-code
-```
-
-## Would You Like to Implement This?
-
-- [ ] Yes, I would like to implement this feature
-- [ ] No, I'm just proposing the idea
-
-If you'd like to implement this, please mention it so we can provide guidance.
+Add any other context or screenshots about the feature request here.

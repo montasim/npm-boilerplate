@@ -1,237 +1,105 @@
-# Contributing to npm-boilerplate
+# Contributing to http-status-lite
 
-First off, thank you for considering contributing to npm-boilerplate! It's people like you that make npm-boilerplate such a great tool.
-
-## Table of Contents
-
-- [Code of Conduct](#code-of-conduct)
-- [How Can I Contribute?](#how-can-i-contribute)
-- [Development Setup](#development-setup)
-- [Coding Standards](#coding-standards)
-- [Commit Message Conventions](#commit-message-conventions)
-- [Submitting a Pull Request](#submitting-a-pull-request)
-
-## Code of Conduct
-
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
-
-## How Can I Contribute?
-
-### Reporting Bugs
-
-Before creating bug reports, please check the existing issues as you might find that the problem has already been reported. When creating a bug report, please include as many details as possible:
-
-- **Use a clear and descriptive title** for the issue to identify the problem.
-- **Describe the exact steps** to reproduce the problem.
-- **Provide specific examples** to demonstrate the steps.
-- **Describe the behavior** you observed and what you expected.
-- **Include environment details** like OS, Node.js version, etc.
-
-### Suggesting Enhancements
-
-Enhancement suggestions are tracked as GitHub issues. When creating an enhancement suggestion, include:
-
-- **Use a clear and descriptive title** for the issue.
-- **Provide a detailed description** of the suggested enhancement.
-- **Explain why this enhancement** would be useful to most users.
-- **List some examples** of how this feature would be used.
+Thank you for your interest in contributing! We appreciate your help.
 
 ## Development Setup
 
-### Prerequisites
-
-- **Node.js**: >= 20.x
-- **pnpm**: >= 10.x (or npm/yarn)
-
-### Installation
-
-1. Fork the repository and clone your fork:
+1. Clone and install:
 
     ```bash
-    git clone https://github.com/YOUR_USERNAME/npm-boilerplate.git
-    cd npm-boilerplate
-    ```
-
-2. Install dependencies:
-    ```bash
-    pnpm install
-    # or
+    git clone https://github.com/montasim/http-status-lite.git
+    cd http-status-lite
     npm install
     ```
 
-### Development Workflow
-
-1. **Create a new branch** for your feature or bugfix:
+2. Create a feature branch:
 
     ```bash
     git checkout -b feature/your-feature-name
-    # or
-    git checkout -b fix/your-bugfix-name
     ```
 
-2. **Make your changes** following the coding standards below.
-
-3. **Run linting and formatting**:
+3. Make changes and test:
 
     ```bash
-    npm run lint:fix
+    npm run build    # Build the package
+    npm test         # Run tests
+    npm run lint     # Check code quality
+    npm run format   # Check formatting
     ```
 
-4. **Run tests**:
+## Development Workflow
 
-    ```bash
-    npm test
-    npm run test:coverage
-    ```
+### Making Changes
 
-5. **Build the project**:
-
-    ```bash
-    npm run build
-    ```
-
-6. **Commit your changes** using conventional commit messages (see below).
-
-7. **Push to your fork** and create a pull request.
-
-## Coding Standards
-
-### TypeScript
-
-- Use **TypeScript** for all source files
-- Enable **strict mode** (already configured in `tsconfig.json`)
-- Prefer **const** over **let** when possible
-- Use **arrow functions** for callbacks and short functions
-- Follow **SOLID principles**:
-    - Single Responsibility Principle
-    - Open/Closed Principle
-    - Liskov Substitution Principle
-    - Interface Segregation Principle
-    - Dependency Inversion Principle
+1. **Write tests first** - Follow TDD principles
+2. **Implement your changes** - Keep code simple and focused
+3. **Add JSDoc comments** - Document public APIs with examples
+4. **Update tests** - Ensure all tests pass (23/23)
+5. **Update documentation** - Update README if needed
 
 ### Code Style
 
-This project uses **ESLint** and **Prettier** for code quality and formatting. Pre-commit hooks will automatically check your code before allowing commits.
+- Use TypeScript for all code
+- Follow existing formatting (Prettier)
+- Add JSDoc comments for public APIs
+- Keep functions small and focused
+- Use descriptive variable names
 
-```bash
-# Check linting
-npm run eslint:check
+### Commit Messages
 
-# Fix linting issues
-npm run eslint:fix
+We use [conventional commits](https://www.conventionalcommits.org/):
 
-# Check formatting
-npm run prettier:check
+- `feat: add new feature`
+- `fix: resolve bug`
+- `docs: update readme`
+- `test: add tests for getStatus`
+- `refactor: simplify helper logic`
 
-# Fix formatting issues
-npm run prettier:fix
+Use `npm run commit` for an interactive commit experience.
+
+## Pull Requests
+
+1. **Keep PRs focused** - One feature or fix per PR
+2. **Update tests** - Ensure all tests pass
+3. **Update docs** - Update README/CHANGELOG if needed
+4. **Follow conventions** - Use conventional commits
+5. **Be patient** - We'll review as soon as possible
+
+### PR Checklist
+
+- [ ] Tests pass (`npm test`)
+- [ ] Linting passes (`npm run lint`)
+- [ ] Formatting passes (`npm run format`)
+- [ ] Added tests for new functionality
+- [ ] Updated documentation
+- [ ] Updated CHANGELOG.md (if applicable)
+
+## Project Structure
+
+```
+http-status-lite/
+├── src/              # Source code
+│   └── index.ts      # Main implementation
+├── test/             # Test files
+│   └── index.test.js # Test suite
+├── dist/             # Build output (generated)
+├── docs/             # Documentation (ignored in git)
+├── package.json
+├── tsconfig.json
+├── tsup.config.ts
+└── README.md
 ```
 
-### File Naming
+## Adding New Features
 
-- Use **kebab-case** for file names: `my-module.ts`
-- Use **PascalCase** for class names: `MyClass`
-- Use **camelCase** for function and variable names: `myFunction`
-- Use **UPPER_CASE** for constants: `MY_CONSTANT`
+Before adding new features, please open an issue to discuss:
 
-### Documentation
+- The use case
+- Proposed API
+- Implementation approach
 
-- Add **JSDoc comments** to all exported functions and classes
-- Include **@example** blocks for complex functions
-- Document **parameters** with @param tags
-- Document **return types** with @return tags
+This helps ensure the feature fits the project's goals.
 
-## Commit Message Conventions
+## Questions?
 
-This project uses [Conventional Commits](https://www.conventionalcommits.org/) for commit messages. The pre-commit hook will validate your commit messages.
-
-### Format
-
-```
-<type>(<scope>): <description>
-
-[optional body]
-
-[optional footer]
-```
-
-### Types
-
-- **feat**: A new feature
-- **fix**: A bug fix
-- **docs**: Documentation only changes
-- **style**: Changes that don't affect code meaning (formatting, etc.)
-- **refactor**: Code change that neither fixes a bug nor adds a feature
-- **perf**: Performance improvement
-- **test**: Adding or updating tests
-- **build**: Changes to build system or dependencies
-- **ci**: CI/CD changes
-- **chore**: Other changes that don't modify src or test files
-
-### Examples
-
-```bash
-feat(cli): add support for custom colors
-
-fix: correct package export paths
-
-docs: update installation instructions
-
-test: add unit tests for ascii-art-generator
-
-refactor(modules): extract link factory for reusability
-```
-
-## Submitting a Pull Request
-
-### Before Submitting
-
-1. **Ensure your code passes all tests**:
-
-    ```bash
-    npm test
-    npm run lint:check
-    npm run build
-    ```
-
-2. **Update documentation** if you've changed functionality:
-    - Update README.md
-    - Add/update JSDoc comments
-    - Update CHANGELOG.md if needed
-
-3. **Squash your commits** into a single logical commit (if needed).
-
-4. **Write a clear PR title** following the commit message convention.
-
-### PR Description Template
-
-When submitting a PR, please include:
-
-- **Description**: What does this PR do?
-- **Type**: What type of change is it? (feat, fix, docs, refactor, etc.)
-- **Breaking Changes**: Are there any breaking changes?
-- **Testing**: How did you test your changes?
-- **Screenshots**: Add screenshots if your changes affect UI/CLI output
-
-### Review Process
-
-1. Automated checks will run on your PR (linting, tests, build).
-2. Maintainers will review your code and provide feedback.
-3. Address any review comments.
-4. Once approved, your PR will be merged.
-
-### Getting Help
-
-If you need help with your contribution:
-
-- Ask a question in an issue
-- Start a discussion
-- Reach out to maintainers
-
-## Recognition
-
-Contributors who significantly improve the project will be recognized in the README.md file.
-
----
-
-Thank you for contributing to npm-boilerplate! 🎉
+Feel free to open an issue with any questions!
