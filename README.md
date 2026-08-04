@@ -1,422 +1,157 @@
-# <package-name>
+# npm Boilerplate
 
-> <description>
+> A TypeScript package template for shipping typed ESM and CommonJS builds with tests, linting, formatting, conventional commits, and release tooling.
 
-[![npm version](https://badge.fury.io/js/<package-name>.svg)](https://www.npmjs.com/package/<package-name>)
-[![License: CC-BY-NC-ND-4.0](https://img.shields.io/badge/License-CC--BY--NC--ND--4.0-blue.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![CI](https://github.com/montasim/npm-boilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/montasim/npm-boilerplate/actions/workflows/ci.yml)
+[![Node.js](https://img.shields.io/badge/maintainer_toolchain-Node_24-339933?logo=node.js&logoColor=white)](.nvmrc)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-blue.svg)](LICENSE)
 
-## Features
+This repository is a baseline for authoring a small npm library, not a published package to install directly. Clone it, replace the explicit package placeholders, adapt the sample utility API, and retain the build and quality workflow that fits your project.
 
-- 📦 **Zero dependencies**: Lightweight and fast
-- 🔒 **Type-safe**: Full TypeScript support with type guards
-- 🧪 **Well-tested**: Comprehensive test coverage
-- 📝 **Well-documented**: Full JSDoc comments with examples
-- 🌲 **Tree-shakeable**: Import only what you need
-- 🔄 **Dual ESM/CJS**: Works in Node.js and modern browsers
+**[Create a package](#use-this-template) · [Understand the output](#package-output) · [Read the contribution guide](CONTRIBUTING.md) · [Report an issue](https://github.com/montasim/npm-boilerplate/issues)**
 
-## Installation
+## What the template provides
+
+- TypeScript source compiled by tsup into ESM, CommonJS, and declaration files.
+- An explicit conditional `exports` map for `import`, `require`, and types.
+- Dependency-free sample string, number, and runtime type-guard utilities.
+- Node's built-in test runner with coverage of the exported sample surface.
+- ESLint 10, Prettier, Husky, lint-staged, Commitlint, and Commitizen.
+- GitHub Actions checks and ESM/CommonJS package-export validation.
+- Standard Version changelog and release commands.
+- Contribution and private vulnerability-reporting guidance.
+
+## Use this template
+
+### Prerequisites
+
+- Node.js 24.12.0 for the current maintainer toolchain, matching [`.nvmrc`](.nvmrc)
+- npm and Git
+
+> [!WARNING]
+> The manifest deliberately contains `<package-name>`, `<description>`, `<author-name>`, and `<username>` placeholders. Replace every placeholder before installing, publishing, or presenting a derived package.
+
+### 1. Clone and rename
 
 ```bash
-# npm
-npm install <package-name>
-
-# yarn
-yarn add <package-name>
-
-# pnpm
-pnpm add <package-name>
-
-# bun
-bun add <package-name>
+git clone https://github.com/montasim/npm-boilerplate.git my-package
+cd my-package
+nvm use
 ```
 
-## Quick Start
+Update at least these `package.json` fields:
 
-```typescript
-import { capitalize, truncate, slugify, clamp, randomInt, isArray, isObject } from '<package-name>';
+- `name`, `description`, `author`, and `keywords`
+- `repository.url`
+- `license`, if the derivative project uses different terms
 
-// String utilities
-capitalize('hello world'); // 'Hello world'
-truncate('This is a very long string', 10); // 'This is a...'
-slugify('Hello World!'); // 'hello-world'
+Also update the README name, import examples, badges, copyright holder, issue URLs, and security contact. A package name must be available and valid in the target npm registry before publishing.
 
-// Number utilities
-clamp(15, 0, 10); // 10
-randomInt(1, 10); // Random integer between 1 and 10
-
-// Type utilities
-if (isArray(data)) {
-    data.forEach((item) => console.log(item));
-}
-
-if (isObject(config)) {
-    const key = Object.keys(config)[0];
-}
-```
-
-## API Reference
-
-### String Utilities
-
-#### `capitalize(str)`
-
-Capitalize the first letter of a string.
-
-```typescript
-capitalize('hello'); // 'Hello'
-capitalize('HELLO'); // 'HELLO'
-capitalize(''); // ''
-```
-
-**Parameters:**
-
-- `str` (string): Input string
-
-**Returns:** Capitalized string
-
-#### `truncate(str, maxLength?)`
-
-Truncate a string to a maximum length, adding ellipsis if truncated.
-
-```typescript
-truncate('Hello world', 5); // 'Hello...'
-truncate('Hi', 10); // 'Hi'
-truncate('Long text', 50); // 'Long text' (default maxLength: 50)
-```
-
-**Parameters:**
-
-- `str` (string): Input string
-- `maxLength` (number, optional): Maximum length (default: 50)
-
-**Returns:** Truncated string with ellipsis if needed
-
-#### `slugify(str)`
-
-Convert a string to a URL-friendly slug.
-
-```typescript
-slugify('Hello World!'); // 'hello-world'
-slugify('Foo & Bar'); // 'foo-bar'
-slugify('  multiple   spaces  '); // 'multiple-spaces'
-```
-
-**Parameters:**
-
-- `str` (string): Input string
-
-**Returns:** URL-safe slug
-
-### Number Utilities
-
-#### `clamp(num, min, max)`
-
-Clamp a number between min and max values.
-
-```typescript
-clamp(5, 0, 10); // 5
-clamp(-5, 0, 10); // 0
-clamp(15, 0, 10); // 10
-```
-
-**Parameters:**
-
-- `num` (number): Input number
-- `min` (number): Minimum value
-- `max` (number): Maximum value
-
-**Returns:** Clamped number
-
-#### `randomInt(min, max)`
-
-Generate a random integer between min and max (inclusive).
-
-```typescript
-const result = randomInt(1, 10); // Integer between 1 and 10
-const dice = randomInt(1, 6); // Simulate dice roll
-```
-
-**Parameters:**
-
-- `min` (number): Minimum value
-- `max` (number): Maximum value
-
-**Returns:** Random integer
-
-### Type Utilities
-
-#### `isArray(value)`
-
-Type guard to check if a value is an array.
-
-```typescript
-const data: unknown = getData();
-
-if (isArray(data)) {
-    // TypeScript knows data is unknown[] here
-    data.forEach((item) => console.log(item));
-}
-```
-
-**Parameters:**
-
-- `value` (unknown): Value to check
-
-**Returns:** True if value is an array
-
-#### `isObject(value)`
-
-Type guard to check if a value is a plain object.
-
-```typescript
-const config: unknown = getConfig();
-
-if (isObject(config)) {
-    // TypeScript knows config is Record<string, unknown> here
-    const key = Object.keys(config)[0];
-}
-```
-
-**Parameters:**
-
-- `value` (unknown): Value to check
-
-**Returns:** True if value is a plain object (not null, not array)
-
-## TypeScript Support
-
-Full TypeScript support with type guards and type inference:
-
-```typescript
-import { isArray, isObject, capitalize } from '<package-name>';
-
-function processData(data: unknown) {
-    if (isArray(data)) {
-        // TypeScript infers data as unknown[]
-        return data.map((item) => String(item));
-    }
-
-    if (isObject(data)) {
-        // TypeScript infers data as Record<string, unknown>
-        return Object.keys(data);
-    }
-
-    return String(data);
-}
-
-// Type-safe string operations
-const result: string = capitalize('hello');
-```
-
-### Type Guards
-
-Type guards narrow the type of unknown values:
-
-```typescript
-function handleInput(input: unknown) {
-    if (isArray(input)) {
-        // input is now unknown[]
-        input.forEach((item) => console.log(item));
-    } else if (isObject(input)) {
-        // input is now Record<string, unknown>
-        console.log(Object.keys(input));
-    }
-}
-```
-
-## Development
-
-### Setup
+### 2. Install and verify
 
 ```bash
-# Clone the repository
-git clone https://github.com/<username>/<package-name>.git
-cd <package-name>
-
-# Install dependencies
 npm install
-
-# Run tests
+npm run lint
+npm run format
 npm test
-
-# Build the package
-npm run build
-
-# Watch mode for development
-npm run dev
 ```
 
-### Scripts
+`npm test` first builds the package and then runs the Node test suite.
 
-- `npm run build` - Build the package (ESM + CJS)
-- `npm run dev` - Watch mode for development
-- `npm test` - Run tests
-- `npm run lint` - Check code style with ESLint
-- `npm run lint:fix` - Fix ESLint issues automatically
-- `npm run format` - Check formatting with Prettier
-- `npm run format:fix` - Fix formatting with Prettier
-- `npm run commit` - Interactive commit with commitizen
-- `npm run release` - Create a new release with standard-version
+### 3. Replace the sample API
 
-### Testing
+Edit `src/index.ts`, update `test/index.test.js`, and revise the public documentation. The sample exports are:
 
-The package uses Node.js built-in test runner. Tests are located in `test/` directory.
+| Export | Behavior |
+| --- | --- |
+| `capitalize` | Uppercase the first character |
+| `truncate` | Limit a string and append `...` |
+| `slugify` | Produce a lowercase ASCII-oriented slug |
+| `clamp` | Constrain a number between two boundaries |
+| `randomInt` | Return an inclusive pseudo-random integer |
+| `isArray` | Narrow an unknown value to `unknown[]` |
+| `isObject` | Narrow an unknown value to a non-null, non-array object |
+| `utils` | Frozen object containing all sample functions |
 
-```bash
-# Run all tests
-npm test
+Example after choosing the package name:
 
-# Run tests in watch mode (requires tsd or similar)
-npm run test:watch
-```
+```typescript
+import { capitalize, clamp, isObject } from 'my-package';
 
-### Building
+capitalize('hello'); // 'Hello'
+clamp(12, 0, 10); // 10
 
-The package builds both ESM and CommonJS formats using tsup:
-
-```bash
-npm run build
-```
-
-Output files:
-
-- `dist/index.js` - ESM format
-- `dist/index.cjs` - CommonJS format
-- `dist/index.d.ts` - TypeScript declarations
-
-## Using This Template
-
-This repository is set up as a template for creating TypeScript packages. Follow these steps to customize it for your own package:
-
-### Step 1: Update package.json
-
-Replace placeholders in `package.json`:
-
-```json
-{
-    "name": "<package-name>", // Your package name
-    "description": "<description>", // Your package description
-    "author": "<author-name>", // Your name
-    "repository": {
-        "url": "https://github.com/<username>/<package-name>.git"
-    }
+const input: unknown = { enabled: true };
+if (isObject(input)) {
+  console.log(input.enabled);
 }
 ```
 
-### Step 2: Customize Source Code
+## Package output
 
-Replace the utility functions in `src/index.ts` with your own implementation:
+`npm run build` writes:
 
-````typescript
-/**
- * Your function description
- * @param param - Description
- * @returns Return value description
- * @example
- * ```typescript
- * yourFunction('example') // 'result'
- * ```
- */
-export function yourFunction(param: string): string {
-    // Your implementation
-    return param;
-}
-````
-
-### Step 3: Update Tests
-
-Replace tests in `test/index.test.js` to test your functions:
-
-```javascript
-import { describe, it } from 'node:test';
-import assert from 'node:assert';
-import { yourFunction } from '<package-name>';
-
-describe('yourFunction', () => {
-    it('should do something', () => {
-        assert.strictEqual(yourFunction('input'), 'expected output');
-    });
-});
+```text
+dist/
+├── index.js     # ESM entry
+├── index.cjs    # CommonJS entry
+├── index.d.ts   # ESM declarations
+└── index.d.cts  # CommonJS declarations
 ```
 
-### Step 4: Update README
-
-Customize this README.md file:
-
-1. Replace `<package-name>` with your package name
-2. Replace `<description>` with your package description
-3. Replace `<author-name>` with your name
-4. Replace `<username>` with your GitHub username
-5. Update the Features section with your package's features
-6. Update the API Reference with your functions
-7. Update examples to show your package usage
-
-### Step 5: Update License
-
-Update the license in `package.json` and `LICENSE` file:
-
-```json
-{
-    "license": "MIT" // or your preferred license
-}
-```
-
-### Step 6: Configure Git
+Only `dist/`, `README.md`, and `LICENSE` are included in the package tarball. Inspect the actual artifact before release:
 
 ```bash
-# Initialize git if needed
-git init
-
-# Add remote repository
-git remote add origin https://github.com/<username>/<package-name>.git
-
-# Create initial commit
-git add .
-git commit -m "chore: initial commit"
-
-# Push to GitHub
-git push -u origin main
+npm pack --dry-run
 ```
 
-## Template Setup Checklist
+## Development commands
 
-Use this checklist to ensure you've completed all customization steps:
+| Command | Purpose |
+| --- | --- |
+| `npm run build` | Build ESM, CommonJS, and declarations with tsup |
+| `npm run dev` | Rebuild in watch mode |
+| `npm test` | Build and run Node tests |
+| `npm run lint` | Run ESLint |
+| `npm run lint:fix` | Apply ESLint fixes |
+| `npm run format` | Check Prettier formatting |
+| `npm run format:fix` | Apply Prettier formatting |
+| `npm run commit` | Create a Conventional Commit interactively |
+| `npm run release` | Update versions and changelog with Standard Version |
 
-- [ ] Updated `package.json` placeholders (name, description, author, repository)
-- [ ] Replaced utility functions in `src/index.ts` with your own
-- [ ] Updated tests in `test/index.test.js`
-- [ ] Customized README.md with your package information
-- [ ] Updated license in `package.json` and `LICENSE` file
-- [ ] Configured git remote and pushed to GitHub
-- [ ] Published to npm (run `npm publish` when ready)
-- [ ] Added GitHub Actions/CI (optional)
-- [ ] Set up documentation website (optional)
+The current CI matrix declares Node 18, 20, and 22, while the checked-in ESLint 10 toolchain requires newer Node releases than some of those jobs provide. Treat Node 24.12.0 as the verified maintainer prerequisite until the CI matrix and dependency compatibility are aligned.
+
+## Release workflow
+
+1. Remove all placeholders and choose the package's license intentionally.
+2. Run lint, formatting, tests, and `npm pack --dry-run`.
+3. Commit changes using Conventional Commit messages.
+4. Run `npm run release` to update the version and `CHANGELOG.md`.
+5. Review the generated commit and tag.
+6. Authenticate with npm and publish only after verifying ownership, visibility, and package contents.
+
+`prepublishOnly` rebuilds and reruns tests, but it does not replace manual review of credentials, registry destination, package name, license, or tarball contents.
+
+## Status and limitations
+
+- `npm-boilerplate` itself is a template and is not configured as an installable published library.
+- Placeholder metadata makes the unmodified manifest invalid for a real release.
+- The sample `slugify` is ASCII-oriented and is not a complete international transliteration solution.
+- `randomInt` uses `Math.random()` and is not appropriate for cryptographic or security-sensitive use.
+- The repository does not include browser or bundler integration tests.
+- The CC BY-NC-ND license restricts commercial use and redistribution of adaptations; it is unusual for reusable software templates and must be reviewed before deriving or publishing another project.
+
+## Support, security, and contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request. Use [GitHub Issues](https://github.com/montasim/npm-boilerplate/issues) for reproducible template defects and feature proposals. Report vulnerabilities privately according to [SECURITY.md](SECURITY.md), never in a public issue.
+
+Issue and pull-request templates are available in [`.github/`](.github). No code of conduct, support guide, or funding configuration is currently included.
+
+## Author
+
+Created and maintained by [Montasim](https://github.com/montasim). Derived packages must replace the manifest and license placeholders with their actual attribution.
 
 ## License
 
-CC-BY-NC-ND-4.0 © <author-name>
-
-See [LICENSE](LICENSE) for the full text.
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes with tests
-4. Ensure tests pass (`npm test`)
-5. Build the package (`npm run build`)
-6. Commit your changes (`git commit -m 'Add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
-
-## Support
-
-- Issues: https://github.com/<username>/<package-name>/issues
-- Discussions: https://github.com/<username>/<package-name>/discussions
-
----
-
-**Built with TypeScript, tested with Node.js**
+This template is distributed under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International](LICENSE). Read the terms before copying or modifying it: the license permits non-commercial sharing with attribution but restricts distributing adaptations.
