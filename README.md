@@ -8,9 +8,9 @@
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-blue.svg)](LICENSE)
 [![Support on SupportKori](https://img.shields.io/badge/Support_on-SupportKori-00B8B5)](https://www.supportkori.com/montasim)
 
-This repository is a baseline for authoring a small npm library, not a published package to install directly. Clone it, replace the explicit package placeholders, adapt the sample utility API, and retain the build and quality workflow that fits your project.
+This repository demonstrates the structure and tooling of a small npm library; it is not a published package to install directly. Its current CC BY-NC-ND 4.0 license allows non-commercial sharing with attribution but forbids distributing adaptations, so it cannot serve as a normal reusable package template unless the maintainer grants separate permission or changes the license.
 
-**[Create a package](#use-this-template) · [Understand the output](#package-output) · [Read the contribution guide](CONTRIBUTING.md) · [Report an issue](https://github.com/montasim/npm-boilerplate/issues)**
+**[Evaluate the scaffold](#evaluate-the-scaffold) · [Understand the output](#package-output) · [Review current limitations](#status-and-limitations) · [Report an issue](https://github.com/montasim/npm-boilerplate/issues)**
 
 ## What the template provides
 
@@ -21,9 +21,9 @@ This repository is a baseline for authoring a small npm library, not a published
 - ESLint 10, Prettier, Husky, lint-staged, Commitlint, and Commitizen.
 - GitHub Actions checks and ESM/CommonJS package-export validation.
 - Standard Version changelog and release commands.
-- Contribution and private vulnerability-reporting guidance.
+- Checked-in contribution and security documents that currently require correction before they can be relied on.
 
-## Use this template
+## Evaluate the scaffold
 
 ### Prerequisites
 
@@ -31,9 +31,9 @@ This repository is a baseline for authoring a small npm library, not a published
 - npm and Git
 
 > [!WARNING]
-> The manifest deliberately contains `<package-name>`, `<description>`, `<author-name>`, and `<username>` placeholders. Replace every placeholder before installing, publishing, or presenting a derived package.
+> The manifest deliberately contains `<package-name>`, `<description>`, `<author-name>`, and `<username>` placeholders. The current NoDerivatives license does not permit distributing a modified version. Do not publish or redistribute a derived package without separate permission or a license change from the rights holder.
 
-### 1. Clone and rename
+### 1. Clone for local evaluation
 
 ```bash
 git clone https://github.com/montasim/npm-boilerplate.git my-package
@@ -41,13 +41,13 @@ cd my-package
 nvm use
 ```
 
-Update at least these `package.json` fields:
+If you have permission to create and distribute a derivative, update at least these `package.json` fields:
 
 - `name`, `description`, `author`, and `keywords`
 - `repository.url`
 - `license`, if the derivative project uses different terms
 
-Also update the README name, import examples, badges, copyright holder, issue URLs, and security contact. A package name must be available and valid in the target npm registry before publishing.
+Also update the README name, import examples, badges, copyright holder, issue URLs, contribution guide, and security contact. A package name must be available and valid in the target npm registry before publishing.
 
 ### 2. Install and verify
 
@@ -60,7 +60,7 @@ npm test
 
 `npm test` first builds the package and then runs the Node test suite.
 
-### 3. Replace the sample API
+### 3. Inspect or privately replace the sample API
 
 Edit `src/index.ts`, update `test/index.test.js`, and revise the public documentation. The sample exports are:
 
@@ -125,12 +125,15 @@ The current CI matrix declares Node 18, 20, and 22, while the checked-in ESLint 
 
 ## Release workflow
 
-1. Remove all placeholders and choose the package's license intentionally.
-2. Run lint, formatting, tests, and `npm pack --dry-run`.
-3. Commit changes using Conventional Commit messages.
-4. Run `npm run release` to update the version and `CHANGELOG.md`.
-5. Review the generated commit and tag.
-6. Authenticate with npm and publish only after verifying ownership, visibility, and package contents.
+The following mechanics describe the configured tooling, not permission to publish a derivative. Obtain a compatible license or explicit authorization first.
+
+1. Confirm you have the legal right to distribute the package and its adaptations.
+2. Remove all placeholders and record the authorized license accurately.
+3. Run lint, formatting, tests, and `npm pack --dry-run`.
+4. Commit changes using Conventional Commit messages.
+5. Run `npm run release` to update the version and `CHANGELOG.md`.
+6. Review the generated commit and tag.
+7. Authenticate with npm and publish only after verifying ownership, visibility, and package contents.
 
 `prepublishOnly` rebuilds and reruns tests, but it does not replace manual review of credentials, registry destination, package name, license, or tarball contents.
 
@@ -142,10 +145,14 @@ The current CI matrix declares Node 18, 20, and 22, while the checked-in ESLint 
 - `randomInt` uses `Math.random()` and is not appropriate for cryptographic or security-sensitive use.
 - The repository does not include browser or bundler integration tests.
 - The CC BY-NC-ND license restricts commercial use and redistribution of adaptations; it is unusual for reusable software templates and must be reviewed before deriving or publishing another project.
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) is copied from `http-status-lite`: it names the wrong repository, clone URL, project tree, API examples, and a fixed `23/23` test count. Do not follow it until it is rewritten for this repository.
+- [`SECURITY.md`](SECURITY.md) asks reporters to email the maintainer but provides no address; the repository's enabled GitHub private vulnerability-reporting form is the usable route instead.
 
 ## Support, security, and contributing
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request. Use [GitHub Issues](https://github.com/montasim/npm-boilerplate/issues) for reproducible template defects and feature proposals. Report vulnerabilities privately according to [SECURITY.md](SECURITY.md), never in a public issue.
+Use [GitHub Issues](https://github.com/montasim/npm-boilerplate/issues) for reproducible, non-sensitive scaffold defects and proposals. The checked-in [contribution guide](CONTRIBUTING.md) is for another repository and must not be treated as authoritative.
+
+The [security policy](SECURITY.md) correctly says not to disclose vulnerabilities publicly but omits the email address it tells reporters to use. Use the repository's enabled [private vulnerability-reporting form](https://github.com/montasim/npm-boilerplate/security/advisories/new) instead; do not include vulnerability details in a public issue.
 
 Issue and pull-request templates are available in [`.github/`](.github). No code of conduct, support guide, or funding configuration is currently included.
 
@@ -155,7 +162,7 @@ Optional support through [SupportKori](https://www.supportkori.com/montasim) hel
 
 ## Author
 
-Created and maintained by [Montasim](https://github.com/montasim). Derived packages must replace the manifest and license placeholders with their actual attribution.
+Created and maintained by [Montasim](https://github.com/montasim). The license file itself still contains a `[Your Name]` copyright placeholder; confirm attribution with the maintainer before redistribution.
 
 ## License
 
