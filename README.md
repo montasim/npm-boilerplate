@@ -6,6 +6,7 @@
 [![Node.js](https://img.shields.io/badge/maintainer_toolchain-Node_24-339933?logo=node.js&logoColor=white)](.nvmrc)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-blue.svg)](LICENSE)
+[![Support on SupportKori](https://img.shields.io/badge/Support_on-SupportKori-00B8B5)](https://www.supportkori.com/montasim)
 
 This repository is a baseline for authoring a small npm library, not a published package to install directly. Clone it, replace the explicit package placeholders, adapt the sample utility API, and retain the build and quality workflow that fits your project.
 
@@ -147,6 +148,10 @@ The current CI matrix declares Node 18, 20, and 22, while the checked-in ESLint 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a pull request. Use [GitHub Issues](https://github.com/montasim/npm-boilerplate/issues) for reproducible template defects and feature proposals. Report vulnerabilities privately according to [SECURITY.md](SECURITY.md), never in a public issue.
 
 Issue and pull-request templates are available in [`.github/`](.github). No code of conduct, support guide, or funding configuration is currently included.
+
+## Funding
+
+Optional support through [SupportKori](https://www.supportkori.com/montasim) helps maintain this template and its tooling. Reproducible reports, documentation fixes, and code contributions are equally appreciated.
 
 ## Author
 
