@@ -1,7 +1,18 @@
 {
     "name": "<package-name>",
     "version": "1.0.0",
-    "description": "<description>",
+    "description": "TypeScript npm-package template with typed ESM and CommonJS builds, linting, formatting, commit checks, tests, and release tooling.",
+    "keywords": [
+        "boilerplate",
+        "javascript",
+        "typescript",
+        "npm-package",
+        "package-template",
+        "esm",
+        "commonjs",
+        "tsup",
+        "developer-tooling"
+    ],
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
@@ -36,12 +47,6 @@
         "prepare": "husky",
         "release": "standard-version"
     },
-    "keywords": [
-        "typescript",
-        "utility",
-        "library",
-        "template"
-    ],
     "author": "<author-name>",
     "license": "CC-BY-NC-ND-4.0",
     "repository": {
